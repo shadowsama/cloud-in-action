@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true">
+
+    <jmxConfigurator />
+
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+
+    <appender name="stash"
+              class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <remoteHost>192.168.75.3</remoteHost>
+        <port>5043</port>
+        <!-- encoder is required -->
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="stash" />
+    </root>
+
+</configuration>

@@ -1,0 +1,7 @@
+#Eureka 注册中心
+127.0.0.1 peer1
+127.0.0.1 peer2
+127.0.0.1 logstash
+127.0.0.1 elastaticsearch
+127.0.0.1 kibana
+
