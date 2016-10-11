@@ -1,8 +1,5 @@
 spring:
-  data:
-    mongodb:
-      host: 192.168.75.3
-      port: 27017
-      database: city
+  application:
+    name: city
 server:
   port: 8081

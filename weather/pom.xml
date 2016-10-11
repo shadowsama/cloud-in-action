@@ -43,11 +43,19 @@
 
     <!--利用maven的docker插件打包-->
     <build>
-        <finalName>weather</finalName>
+        <finalName>app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.3.5.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>com.spotify</groupId>
@@ -74,7 +82,6 @@
             </plugin>
         </plugins>
     </build>
-
 
 
 </project>

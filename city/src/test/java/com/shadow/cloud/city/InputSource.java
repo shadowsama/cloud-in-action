@@ -7,15 +7,9 @@ import com.shadow.cloud.domain.City;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.test.context.junit4.SpringRunner;
-
 import java.io.*;
 
-//把文件中的内容存到mongo中
-@RunWith(SpringRunner.class)
-@SpringBootTest
 public class InputSource {
 
     @Autowired
@@ -50,7 +44,7 @@ public class InputSource {
                 br.close();
                 isr.close();
                 fis.close();
-                // 关闭的时候最好按照先后顺序关闭最后开的先关闭所以先关s,再关n,最后关m
+                // 关闭的时候最好按照先后顺序关闭最后开的先关闭所以先关
             } catch (IOException e) {
                 e.printStackTrace();
             }
