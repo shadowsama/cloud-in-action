@@ -1,15 +1,14 @@
 spring:
   application:
-    name: config #1
+    name: config #1 服务名称
   profiles:
-    active: native #2
+    active: native #2 使用本地配置文件
 
 eureka:
   instance:
-    non-secure-port: ${server.port:8888} #3
+    non-secure-port: ${server.port:8888} #3 默认端口8888
     metadata-map:
       instanceId: ${spring.application.name}:${random.value} #4
   client:
     service-url:
       defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
-      #defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/ #5

@@ -1,0 +1,5 @@
+city : 8081
+config: 8888
+eureka: 8761,8762
+weather: 80
+server:port :8084

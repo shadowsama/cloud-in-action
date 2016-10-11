@@ -3,7 +3,5 @@ spring:
     config:
       server:
         native:
-          search-locations: classpath:/config #1
+          search-locations: classpath:/config #从config下按spring。application。name 查找配置文件
 
-server:
-  port: 8888
