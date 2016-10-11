@@ -26,7 +26,7 @@
 
     <!--利用maven的docker插件打包-->
     <build>
-        <finalName>eureka</finalName>
+        <finalName>app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
