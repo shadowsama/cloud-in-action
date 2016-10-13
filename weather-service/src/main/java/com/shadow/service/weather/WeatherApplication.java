@@ -23,10 +23,7 @@ public class WeatherApplication {
     SyncGet syncGet ;
     public static void main(String[] args) {
 
-
         SpringApplication.run(WeatherApplication.class,args);
-
-
 
     }
 

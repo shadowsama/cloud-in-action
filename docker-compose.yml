@@ -1,6 +1,49 @@
 version: '2'
 services:
 
+
+ eureka:
+   image: "eureka"
+   hostname: peer1
+   ports:
+   - "8761:8761"
+
+ eureka-repetion:
+   image: "eureka-repetion"
+   hostname: peer2
+   ports:
+    - "8762:8762"
+   links:
+    - eureka
+
+ config:
+   image: "cloud-config"
+   hostname: config
+   ports:
+   - "8888:8888"
+   links:
+       - eureka
+       - eureka-repetion
+
+ city:
+   image: "city"
+   hostname: city
+   ports:
+   - "8081:8081"
+   links:
+          - eureka
+          - eureka-repetion
+          - config
+ weather-service:
+  image: "weather-service"
+  hostname: weather-service
+  ports:
+   - "8084:8084"
+  links:
+     - eureka
+     - eureka-repetion
+     - config
+
  web:
   image: weather
   ports:
@@ -11,7 +54,7 @@ services:
    - front-tier
 
  elasticsearch:
-  image: elasticsearch
+  image: elasticsearch:2.4
   command: elasticsearch -Des.network.host=0.0.0.0
   ports:
    - "9200:9200"
@@ -20,7 +63,7 @@ services:
    - back-tier
 
  logstash:
-  image: logstash
+  image: logstash:2.3
   command: logstash -f /etc/logstash/conf.d/logstash.conf
   volumes:
    - ./src/main/logstash/config:/etc/logstash/conf.d
@@ -33,7 +76,7 @@ services:
    - back-tier
 
  kibana:
-  image: kibana
+  image: kibana:4.6
   environment:
    - ELASTICSEARCH_URL=http://elasticsearch:9200
   ports:

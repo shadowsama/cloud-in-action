@@ -18,7 +18,7 @@ import java.io.IOException;
 
 @Api("get方式获取openwether上的天气信息")
 @RequestMapping("/city")
-@Controller()
+@RestController()
 public class WeatherController {
 
     @Autowired

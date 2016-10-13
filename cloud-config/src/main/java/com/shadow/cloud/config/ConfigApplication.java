@@ -10,6 +10,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Author: shadow @github.com/shadowsama
@@ -18,9 +20,9 @@ import org.springframework.stereotype.Controller;
  */
 @Slf4j
 @Api("配置中心")
-@Controller
-@EnableConfigServer
-@EnableEurekaClient
+@RestController
+@EnableConfigServer  //配置中心
+@EnableEurekaClient  //向eureka注册
 @SpringBootApplication
 public class ConfigApplication {
 
@@ -30,5 +32,6 @@ public class ConfigApplication {
         ConfigurableApplicationContext run = SpringApplication.run(ConfigApplication.class, args);
         log.info(String.format(Thread.currentThread().getName()+"  configserver is try runing!"));
     }
+
 
 }
